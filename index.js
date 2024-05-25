@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+const router = require("./routes");
+const mongoConfig = require("./config/mongoConfig");
+app.use(express.json());
+app.use(router);
 
-app.get("/", function (req, res) {
-  res.send("this frist route 2");
-});
+mongoConfig();
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
   console.log("Port is runing");
 });
