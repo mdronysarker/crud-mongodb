@@ -1,6 +1,6 @@
 const Todo = require("../model/todoModel");
 
-const registrationController = async (req, res) => {
+const todoController = async (req, res) => {
   const { title, name, description } = req.body;
   if (!title || !name || !description) {
     return res.send({ error: "please fill up all section" });
@@ -18,4 +18,4 @@ const registrationController = async (req, res) => {
   // console.log(name, email, phone);
 };
 
-module.exports = registrationController;
+module.exports = todoController;
